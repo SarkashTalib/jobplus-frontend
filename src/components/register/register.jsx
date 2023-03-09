@@ -20,7 +20,7 @@ export default function register() {
       );
       console.log(res);
     } catch (err) {
-      console.log(err.response);
+      console.log(err.response.data.error);
     }
   };
 
