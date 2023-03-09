@@ -10,6 +10,7 @@ export default function register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState({});
 
   // send data to backend
   const registerUser = async (person) => {
@@ -20,7 +21,8 @@ export default function register() {
       );
       console.log(res);
     } catch (err) {
-      console.log(err.response.data.error);
+      setError(err.response.data.error);
+      // console.log(err.response.data.error);
     }
   };
 
@@ -41,7 +43,7 @@ export default function register() {
 
   return (
     <>
-      <Alert type='error' message='This is a test message' />
+      <Alert type='error' error={error} />
       <form className="form form--page" onSubmit={handleSubmit}>
         <div className="form__group form__group--page">
           <label className="form__label">First name</label>
