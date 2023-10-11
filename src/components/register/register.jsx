@@ -24,8 +24,15 @@ export default function register() {
     };
 
     try {
+      // make a post request to the backend endpoint
       const res = await axios.post('http://localhost:1337/api/auth/local/register', data);
-      console.log(res.data);
+      // reset out response
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+
     } catch (err) {
       console.log(err.response.data);
     }
