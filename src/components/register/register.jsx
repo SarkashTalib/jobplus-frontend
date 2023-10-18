@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/form.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { parseErrors } from '../../utils/parseErrors';
 
 export default function register() {
 
@@ -33,8 +34,9 @@ export default function register() {
       setPassword('');
       setConfirmPassword('');
 
+
     } catch (err) {
-      console.log(err.response.data);
+      console.log(parseErrors(err));
     }
 
   }
